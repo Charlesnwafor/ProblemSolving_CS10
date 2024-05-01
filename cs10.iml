@@ -14,21 +14,21 @@
       <sourceFolder url="file://$MODULE_DIR$/SA-3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SA-4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/WebCam Test" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 1" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 2" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 3" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 4" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 5" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 6" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 7" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 8" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/PS-2" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SA-6" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/SA-8" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Testing_out_code" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 11" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 12" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/lecture 13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 11" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 12" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 13" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 3" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 4" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 5" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 6" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/day 8" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
