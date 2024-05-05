@@ -14,7 +14,7 @@ public class USConstitutionHuffman extends HuffmanImplementation {
             // Create a map to store the frequency of each character
             Map<Character, Long> frequencyMap = new HashMap<>();
             // Read the file and count the frequency of each character
-            frequencyMap = huffman.countFrequencies("ps3/USConstitution.txt");
+            frequencyMap = huffman.countFrequencies("PS-3/USConstitution.txt");
             // Create a code tree from the frequency map
             BinaryTree<CodeTreeElement> codeTree = huffman.makeCodeTree(frequencyMap);
             System.out.println("CodeTree:\n");
@@ -28,9 +28,9 @@ public class USConstitutionHuffman extends HuffmanImplementation {
                 System.out.println("Character: " + entry.getKey() + " Code: " + entry.getValue());
             }
             // Compression
-            huffman.compressFile(codeMap, "ps3/USConstitution.txt", "ps3/USConstitutionCompressed.txt");
+            huffman.compressFile(codeMap, "PS-3/USConstitution.txt", "PS-3/USConstitutionCompressed.txt");
             // Decompression
-            huffman.decompressFile("ps3/USConstitutionCompressed.txt", "ps3/USConstitutionDecompressed.txt", codeTree);
+            huffman.decompressFile("PS-3/USConstitutionCompressed.txt", "PS-3/USConstitutionDecompressed.txt", codeTree);
         } catch (Exception e) {
             System.out.println(e);
         }

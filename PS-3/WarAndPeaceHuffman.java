@@ -12,7 +12,7 @@ import java.util.*;
             // Create a map to store the frequency of each character
             Map<Character, Long> frequencyMap = new HashMap<>();
             // Read the file and count the frequency of each character
-            frequencyMap = huffman.countFrequencies("ps3/WarAndPeace.txt");
+            frequencyMap = huffman.countFrequencies("PS-3/WarAndPeace.txt");
             // Create a code tree from the frequency map
             BinaryTree<CodeTreeElement> codeTree = huffman.makeCodeTree(frequencyMap);
             // Print the code tree
@@ -21,12 +21,12 @@ import java.util.*;
             Map<Character, String> codeMap = huffman.computeCodes(codeTree);
             // Print the code map
             for (Map.Entry<Character, String> entry : codeMap.entrySet()) {
-                System.out.println("Character: " + entry.getKey() + " Code: " + entry.getValue());
+                System.out.println("Character: " + entry.getKey() + "Code: " + entry.getValue());
             }
             // Compression
-            huffman.compressFile(codeMap, "ps3/WarAndPeace.txt", "ps3/WarAndPeaceCompressed.txt");
+            huffman.compressFile(codeMap, "PS-3/WarAndPeace.txt", "PS-3/WarAndPeaceCompressed.txt");
             // Decompression
-            huffman.decompressFile("ps3/WarAndPeaceCompressed.txt", "ps3/WarAndPeaceDecompressed.txt", codeTree);
+            huffman.decompressFile("PS-3/WarAndPeaceCompressed.txt", "PS-3/WarAndPeaceDecompressed.txt", codeTree);
         } catch (Exception e) {
             System.out.println(e);
         }
