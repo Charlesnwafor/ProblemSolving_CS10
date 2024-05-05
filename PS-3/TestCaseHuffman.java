@@ -25,7 +25,7 @@ import java.util.*;
                 System.out.println("Character: " + entry.getKey() + " Code: " + entry.getValue());
             }
             // Compression
-            huffman.compressFile(codeMap, "PS-3/simpleText.txt", "ps3/simpleTextCompressed.txt");
+            huffman.compressFile(codeMap, "PS-3/simpleText.txt", "PS-3/simpleTextCompressed.txt");
             // Decompression
             huffman.decompressFile("PS-3/simpleTextCompressed.txt", "PS-3/simpleTextDecompressed.txt", codeTree);
         } catch (Exception e) {
