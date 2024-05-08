@@ -20,7 +20,6 @@ public class GraphLib {
 	 * 			    null if start isn't in graph
 	 */
 	public static <V,E> List<V> randomWalk(Graph<V,E> g, V start, int steps) {
-		// TODO: your code here
 		// Check if the start vertex is in the graph
 		if (!g.hasVertex(start)) {
 			return null;
@@ -54,7 +53,6 @@ public class GraphLib {
 	 * @return		list of vertices sorted by in-degree, decreasing (i.e., largest at index 0)
 	 */
 	public static <V,E> List<V> verticesByInDegree(Graph<V,E> g) {
-		// TODO: your code here
 		if (g.numVertices() == 0) {
 			return null;
 		}
