@@ -24,7 +24,7 @@ public class GraphTraversal<V,E> {
 	 * @param G -- graph to search
 	 * @param start -- starting vertex
 	 */
-	public void DFS(AdjacencyMapGraph<V,E> G, V start) {
+	public void DFS(AdjacencyMapGraph0<V,E> G, V start) {
 		System.out.println("\nDepth First Search from " + start);
 		backTrack = new HashMap<V,V>(); //initialize backTrack
 		backTrack.put(start, null); //load start node with null parent
@@ -52,7 +52,7 @@ public class GraphTraversal<V,E> {
 	 * @param G -- graph to search
 	 * @param start -- starting vertex
 	 */
-	public void BFS(AdjacencyMapGraph<V,E> G, V start) {
+	public void BFS(AdjacencyMapGraph0<V,E> G, V start) {
 		System.out.println("\nBreadth First Search from " + start);
 		backTrack = new HashMap<V,V>(); //initialize backTrack
 		backTrack.put(start, null); //load start vertex with null parent
@@ -110,7 +110,7 @@ public class GraphTraversal<V,E> {
 	public static void main(String[] args) {
 		//set up graph from class introducing Graphs
 		GraphTraversal<String,String> GT = new GraphTraversal<String,String>();
-		AdjacencyMapGraph<String,String> g = new AdjacencyMapGraph<String,String>();
+		AdjacencyMapGraph0<String,String> g = new AdjacencyMapGraph0<String,String>();
 		g.insertVertex("Alice");
 		g.insertVertex("Bob");
 		g.insertVertex("Charlie");
@@ -140,7 +140,7 @@ public class GraphTraversal<V,E> {
 		GT.findPath("Alice","Charlie");
 		
 		//set up graph from Graph Traversal class
-		AdjacencyMapGraph<String,String> g2 = new AdjacencyMapGraph<String,String>();
+		AdjacencyMapGraph0<String,String> g2 = new AdjacencyMapGraph0<String,String>();
 		g2.insertVertex("A"); g2.insertVertex("B"); g2.insertVertex("C"); g2.insertVertex("D");
 		g2.insertVertex("E"); g2.insertVertex("F"); g2.insertVertex("G"); g2.insertVertex("H"); g2.insertVertex("I");
 		g2.insertUndirected("A", "B", "");

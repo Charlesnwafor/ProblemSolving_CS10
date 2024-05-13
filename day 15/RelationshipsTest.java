@@ -5,7 +5,7 @@
  */
 public class RelationshipsTest {
 	public static void main(String [] args) {
-		Graph<String, String> relationships = new AdjacencyMapGraph<String, String>();
+		Graph<String, String> relationships = new AdjacencyMapGraph0<String, String>();
 
 		relationships.insertVertex("Alice");
 		relationships.insertVertex("Bob");

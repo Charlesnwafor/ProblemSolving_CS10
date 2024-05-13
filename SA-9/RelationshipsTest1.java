@@ -7,7 +7,7 @@ import java.util.*;
  * @source Tim Pierson, Dartmouth CS10, Winter 2024, based on prior term code
  */public class RelationshipsTest1 extends GraphLib{
 	public static void main(String [] args) {
-		Graph<String, String> relationships = new AdjacencyMapGraph<String, String>();
+		Graph<String, String> relationships = new AdjacencyMapGraph0<String, String>();
 
 		relationships.insertVertex("A");
 		relationships.insertVertex("B");
