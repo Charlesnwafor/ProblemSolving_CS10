@@ -57,6 +57,7 @@ public class EditorOne extends JFrame {
 				super.paintComponent(g);
 				// TODO: YOUR CODE HERE
 				// Call helper method to draw the sketch on g
+				drawSketch(g);
 				System.out.println("repainting!");
 			}
 		};
@@ -67,12 +68,14 @@ public class EditorOne extends JFrame {
 			public void mousePressed(MouseEvent event) {
 				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse press
+				handlePress(event.getPoint());
 				System.out.println("pressed at "+event.getPoint());
 			}
 
 			public void mouseReleased(MouseEvent event) {
 				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse release
+				handleRelease();
 				System.out.println("released at "+event.getPoint());
 			}
 		});		
@@ -81,6 +84,7 @@ public class EditorOne extends JFrame {
 			public void mouseDragged(MouseEvent event) {
 				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse drag
+				handleDrag(event.getPoint());
 				System.out.println("dragged to "+event.getPoint());
 			}
 		});
@@ -155,6 +159,34 @@ public class EditorOne extends JFrame {
 		// In recoloring mode, change the shape's color if clicked in it
 		// In deleting mode, delete the shape if clicked in it
 		// Be sure to refresh the canvas (repaint) if the appearance has changed
+
+		switch (mode){
+			case DRAW:
+				// Start a new shape at the clicked point
+				drawFrom = p;
+				shape = new Ellipse(drawFrom.x, drawFrom.y, 0, 0, color);
+				break;
+			case MOVE:
+				// If clicked inside the existing shape prepare to move it
+				if (shape != null && shape.contains(p)){
+					moveFrom = p;
+				}
+				break;
+			case RECOLOR:
+				// If clicked inside the existing shape recolor it
+				if (shape != null && shape.contains(p)){
+					shape.setColor(color);
+				}
+				break;
+			case DELETE:
+				// If clicked inside the existing shape, the ellipse is deleted
+				if (shape != null && shape.contains(p)){
+					shape = null;
+				}
+				break;
+		}
+
+		repaint(); //refresh the canvas after any changes
 	}
 
 	/**
@@ -165,6 +197,26 @@ public class EditorOne extends JFrame {
 		// In drawing mode, revise the shape as it is stretched out
 		// In moving mode, shift the object and keep track of where next step is from
 		// Be sure to refresh the canvas (repaint) if the appearance has changed
+
+		switch (mode) {
+			case DRAW ->{
+				if (shape != null && drawFrom != null){
+					shape.setCorners(drawFrom.x, drawFrom.y, p.x, p.y);
+				}
+			}
+
+			break;
+
+			case MOVE -> {
+				if (shape != null && moveFrom != null){
+					shape.moveBy(p.x - moveFrom.x, p.y - moveFrom.y);
+				}
+				break;
+			}
+		}
+
+		repaint();
+
 	}
 
 	/**
@@ -174,6 +226,8 @@ public class EditorOne extends JFrame {
 		// TODO: YOUR CODE HERE
 		// In moving mode, stop dragging the object
 		// Be sure to refresh the canvas (repaint) if the appearance has changed
+
+		if (mode == Mode.DRAW && )
 	}
 
 	/**
