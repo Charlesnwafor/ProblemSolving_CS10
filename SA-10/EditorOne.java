@@ -5,7 +5,9 @@ import javax.swing.*;
 
 /**
  * Basic shape drawing GUI
- * 
+ *
+ * Edited by @author Ikenna Nwafor
+ *
  * @author Chris Bailey-Kellogg, Dartmouth CS 10, Fall 2012; loosely based on CS 5 code by Tom Cormen
  * @author CBK, lightly revised Winter 2014
  * @author CBK, restructured Shape/Drawer and some of the GUI, Spring 2016
@@ -55,7 +57,6 @@ public class EditorOne extends JFrame {
 		JComponent canvas = new JComponent() {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
-				// TODO: YOUR CODE HERE
 				// Call helper method to draw the sketch on g
 				drawSketch(g);
 				System.out.println("repainting!");
@@ -66,14 +67,12 @@ public class EditorOne extends JFrame {
 
 		canvas.addMouseListener(new MouseAdapter() {
 			public void mousePressed(MouseEvent event) {
-				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse press
 				handlePress(event.getPoint());
 				System.out.println("pressed at "+event.getPoint());
 			}
 
 			public void mouseReleased(MouseEvent event) {
-				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse release
 				handleRelease();
 				System.out.println("released at "+event.getPoint());
@@ -82,7 +81,6 @@ public class EditorOne extends JFrame {
 
 		canvas.addMouseMotionListener(new MouseAdapter() {
 			public void mouseDragged(MouseEvent event) {
-				// TODO: YOUR CODE HERE
 				// Call helper method to handle the mouse drag
 				handleDrag(event.getPoint());
 				System.out.println("dragged to "+event.getPoint());
@@ -153,7 +151,6 @@ public class EditorOne extends JFrame {
 	 * Helper method for press at point
 	 */
 	private void handlePress(Point p) {
-		// TODO: YOUR CODE HERE
 		// In drawing mode, start drawing a new shape
 		// In moving mode, start dragging if clicked in the shape
 		// In recoloring mode, change the shape's color if clicked in it
@@ -168,19 +165,19 @@ public class EditorOne extends JFrame {
 				break;
 			case MOVE:
 				// If clicked inside the existing shape prepare to move it
-				if (shape != null && shape.contains(p)){
+				if (shape != null && shape.contains(p.x, p.y)){
 					moveFrom = p;
 				}
 				break;
 			case RECOLOR:
 				// If clicked inside the existing shape recolor it
-				if (shape != null && shape.contains(p)){
+				if (shape != null && shape.contains(p.x, p.y)){
 					shape.setColor(color);
 				}
 				break;
 			case DELETE:
 				// If clicked inside the existing shape, the ellipse is deleted
-				if (shape != null && shape.contains(p)){
+				if (shape != null && shape.contains(p.x, p.y)){
 					shape = null;
 				}
 				break;
@@ -193,29 +190,32 @@ public class EditorOne extends JFrame {
 	 * Helper method for drag to new point
 	 */
 	private void handleDrag(Point p) {
-		// TODO: YOUR CODE HERE
 		// In drawing mode, revise the shape as it is stretched out
 		// In moving mode, shift the object and keep track of where next step is from
 		// Be sure to refresh the canvas (repaint) if the appearance has changed
 
 		switch (mode) {
+
 			case DRAW ->{
 				if (shape != null && drawFrom != null){
+					// Resize the shape as it is being drawn
 					shape.setCorners(drawFrom.x, drawFrom.y, p.x, p.y);
 				}
 			}
 
-			break;
-
 			case MOVE -> {
 				if (shape != null && moveFrom != null){
-					shape.moveBy(p.x - moveFrom.x, p.y - moveFrom.y);
+					// Calculate how much the shape should move
+					int dx = p.x - moveFrom.x;
+					int dy = p.y - moveFrom.y;
+
+					shape.moveBy(dx, dy);
+					moveFrom = p;
 				}
-				break;
 			}
 		}
 
-		repaint();
+		repaint(); // Refresh the canvas after any changes
 
 	}
 
@@ -223,19 +223,24 @@ public class EditorOne extends JFrame {
 	 * Helper method for release
 	 */
 	private void handleRelease() {
-		// TODO: YOUR CODE HERE
 		// In moving mode, stop dragging the object
 		// Be sure to refresh the canvas (repaint) if the appearance has changed
 
-		if (mode == Mode.DRAW && )
+		if (mode == Mode.MOVE){
+			// Stop dragging the shape
+			moveFrom = null;
+			repaint();
+		}
 	}
 
 	/**
 	 * Draw the whole sketch (here maybe a single shape)
 	 */
 	private void drawSketch(Graphics g) {
-		// TODO: YOUR CODE HERE
 		// Draw the current shape if it exists
+		if (shape != null){
+			shape.draw(g);
+		}
 	}
 
 	public static void main(String[] args) {
